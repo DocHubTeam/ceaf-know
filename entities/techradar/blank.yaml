@@ -1,0 +1,30 @@
+# Расширение сущности "Technologies" для генерации технологического радара
+entities:
+  technologies:
+    presentations:
+      blank:
+        title: Представление технологического радара по описанной архитектуре
+        type: tech-radar
+        source: >
+          (
+            $manifest := $;
+            /* Поучаем параметры выбранной секции */
+            $section := $params.section;
+            {
+                /* Формируем список доступных секций */
+                "sections": $merge([
+                    $manifest.technologies.sections.$spread().{
+                        $keys()[0]: {
+                            "title": *.title,
+                            "key": $keys()[0],
+                            "link": "/entities/technologies/blank?section=" & $keys()[0]
+                        }
+                    }
+                ][$section ? *.key = $section : true]),
+                /* Формируем список доступных технологий */
+                "items": $merge($distinct((components.*.technologies).(
+                    $item := $lookup($manifest.technologies.items, $);
+                    { $: $item ? $item : {} }
+                ))[$section ? *.section = $section : true])
+            }
+          )

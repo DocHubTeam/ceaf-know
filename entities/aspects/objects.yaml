@@ -1,0 +1,47 @@
+#  Базовое описание сущности "Contexts"
+entities:
+  aspects:
+    # Определяет пути к объектам сущности
+    objects:
+      aspect: 
+        route: "/:dh-aspect-id"             # Путь к объектам компонента
+        title: Арх. аспект                  # Название объекта
+        presentation: blank                 # Презентация объекта по умолчанию
+        # JSONata генератор символа в svg для представления в диаграммах. 
+        #  $params.subject - передается объект рендеринга. Может быть не определен. В этом случае, необходимо вернуть неспецифичный (общий) символ объекта.
+        #  $               - Data Lake архитектуры. Может быть не определен, если Data Lake недоступен.
+        symbol: >     
+          (
+            /* Обрабатываем входящие параметры */
+            $manifest := $;
+            $aspect := $params.subject.$spread()[0].*;
+            $aspectId := $eval(($params.subject.$spread().($keys()[0])[0])~>$substring(10));
+          
+            /* Высота строки аспекта */
+            $rowHeight := 14;
+            /* Отступы */
+            $padding := 8;
+            /* Отступы */
+            $headerOffset := 12;
+            /* Ширину символа */
+            $fontWidth := 7;
+            /* Высота символа */
+            $fontHeight := 12;
+
+            /* Определяем заголовок */
+            $header := $aspect.title ? $aspect.title : $aspectId;
+          
+            /* Вычисляем размеры символа */
+            $width := $length($header) * $fontWidth + $padding * 2; /* Умножаем на ширину символа */   
+            $height := $padding * 2 + $headerOffset;   /* Умножаем на высоту строки */
+
+            /* Генерируем символ */
+            '<svg fill="#000000" width="' & $width & 'px" height="' & $height & 'px" viewBox="0 0 ' & $width & ' ' & $height & '" version="1.1" xmlns="http://www.w3.org/2000/svg">' 
+                  & '<g>'
+                      /* Создаем контейнер */
+                      & '<rect width="' & $width & 'px" height="' & $height & 'px" fill=\"#FFE0B2\" stroke=\"#E65100\" rx="3" />'
+                      /* Создаем заголовок */
+                      & '<text x="50%" y="16" style="font-size:' & $fontHeight & '" fill="#E65100" text-anchor="middle" dominant-baseline="middle" >' & $header & '</text>'
+                  & '</g>'
+            & '</svg>';
+          )
