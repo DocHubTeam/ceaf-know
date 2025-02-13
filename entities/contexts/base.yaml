@@ -75,6 +75,23 @@ entities:
           required:
             - title
       additionalProperties: false
+      examples:
+        # Идентификатор контекста
+        - dochub.l1:
+            # Название контекста
+            title: Общая архитектура DocHub
+            # Размещение в меню
+            location: DocHub/Общая архитектура системы
+            # Описание общего смысла контекста
+            description: >
+              Контекст верхнеуровнево отображает архитектуру DocHub
+            # Компоненты, которые требуется отобразить
+            components:
+              - dochub.front
+              - dochub.user
+              - dochub.plantuml
+              - dochub.gitlab
+              - dochub.web
     menu: >
       (
         $root_menu := entities.contexts.config.root_menu;
