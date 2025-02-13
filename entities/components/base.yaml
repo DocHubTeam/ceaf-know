@@ -23,6 +23,52 @@ entities:
             - title
             - entity
       additionalProperties: false
+      examples:
+        # Идентификатор компонента
+        - dochub.front:
+            # Название компонента
+            title: DocHub
+            # Подробное описание компонента
+            description: >
+              Frontend является лючевой подсистемой DocHub. Именно он обеспечивает взаимодействие системы с пользователем.
+            # Сущность компонента из PlantUML (https://plantuml.com/ru/deployment-diagram)
+            entity: component
+            # Используемые технологии
+            technologies:                     
+              - JavaScript
+              - VUEJS2
+              - Chrome
+              - Firefox
+              - Safari
+            # Аспекты, которе реализует компонент
+            aspects:
+              - dochub.gitlab.auth
+              - dochub.manifest.parsing
+              - dochub.contexts
+              - dochub.aspects
+              - dochub.docs
+              - dochub.radar
+              - dochub.navigation
+              - dochub.dataset
+            # Зависимость компонента от других компонентов
+            links:
+                # Идентификатор компонента
+              - id: dochub.gitlab             
+                # Напрвлене связи
+                direction: '<--'
+                # Надпись на связи
+                title: Манифесты и документы 
+                # Идентификатор документа описывающего контракт (может быть прямой ссылкой, например: http://foo.com)
+                contract: dochub.swagger
+              - id: dochub.plantuml
+                direction: '-->'
+                title: PlantUML
+              - id: dochub.plantuml
+                direction: '<-'
+                title: Схема SVG
+              - id: dochub.web
+                direction: '<--'
+                title: Манифесты и документы
     menu: >
       (
         [
