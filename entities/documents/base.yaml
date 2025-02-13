@@ -92,7 +92,7 @@ entities:
                 - title: Массив
                   type: array
       additionalProperties: false
-      example:
+      examples:
         # Структурированный идентификатор документа
         - auth_service.login:
             # Название документа
