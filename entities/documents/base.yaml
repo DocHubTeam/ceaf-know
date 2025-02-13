@@ -29,17 +29,11 @@ entities:
           )
         )
       )
-    # Декларируем презентацию конструктора
-    presentations:
-      constructor:
-        title: Создание документа
-        type: document.create
     # Декларирование объектов сущности
     objects:
       document: 
         route: "/:dh-doc-id"               # Путь к объектам компонента
         title: Документ                    # Название объекта 
-        constructor: constructor           # Идентификатор презентации конструктора
         presentation: blank                # Презентация объекта по умолчанию
         resources:                         # Здесь храним нужные ресурсы
           icon: >
