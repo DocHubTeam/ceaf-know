@@ -28,6 +28,7 @@ entities:
                   "location": $location,
                   "order": *.order,
                   "link": "@document/" & $keys()[0],
+                  "icon": *.icon,
                   "id": $keys()[0]
               }
           )
