@@ -28,7 +28,7 @@ entities:
               items:
                 type: string
                 title: Идентификатор компонента или маска
-                pattern: "^[0-9a-zA-Z][a-zA-Z0-9\\_]*(\\.([a-zA-Z0-9][a-zA-Z0-9\\_]*|\\*))*$"
+                pattern: "^[0-9a-zA-Z][a-zA-Z0-9_]*(\\.([a-zA-Z0-9][a-zA-Z0-9_]*|\\*))*$"
             extra-links:
               title: Отображать компоненты ближайших связей
               type: boolean
@@ -68,7 +68,7 @@ entities:
               anyOf:
                 - type: string
                   title: Идентификатор dataset
-                  pattern: "^[0-9a-zA-Z][a-zA-Z0-9\_]*(\\.[a-zA-Z][a-zA-Z0-9\\_]*)*$"
+                  pattern: "^[0-9a-zA-Z][a-zA-Z0-9_]*(\\.[a-zA-Z][a-zA-Z0-9_]*)*$"
                 - type: string
                   title: JSONata запрос
                   pattern: "\\s*\\((.|\\s)*\\)\\s*"
