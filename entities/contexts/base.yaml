@@ -108,7 +108,7 @@ entities:
               /* Если указана явно презентация, используем ее */
               $presentation := $.*.presentation ? *.presentation : $presentation;
               *.location ? {
-                  "location": $root_menu & "/" & *.location,
+                  "location": *.location~>$substring(0,1) = '/' ? *.location~>$substring(1) : $root_menu & "/" & *.location,
                   "link": "@context/" & $keys()[0],
                   "link_": "entities/contexts/" & $presentation & "?dh-context-id=" & $keys()[0]
               }
