@@ -17,7 +17,8 @@ entities:
               "title": 'Документы',
               "location": $root_menu,
               "expand": true,
-              "icon": 'description'
+              "icon": 'description',
+              "link": "/",
             }
           ],
           docs.$spread().(
