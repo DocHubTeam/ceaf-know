@@ -18,7 +18,7 @@ entities:
               "location": $root_menu,
               "expand": true,
               "icon": 'description',
-              "link": "/"
+              "link": "/@document/dochub.welcome"
             }
           ],
           docs.$spread().(
@@ -28,7 +28,7 @@ entities:
               *.location ? {
                   "location": $location,
                   "order": *.order,
-                  "link": "@document/" & $keys()[0],
+                  "link": "/@document/" & $keys()[0],
                   "icon": *.icon,
                   "id": $keys()[0]
               }
