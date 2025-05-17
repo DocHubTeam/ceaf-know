@@ -12,7 +12,7 @@ imports:
   - entities/root.yaml
   - docs/root.yaml
 docs:
-  ceaf.app.introduction:
+  ceaf.known.introduction:
     type: markdown
     location: /CEAF/Knowledge
     title: CEAF знаний
