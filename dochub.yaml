@@ -27,3 +27,4 @@ imports:
   - entities/root.yaml
   - rules/root.yaml
   - functions/root.yaml
+  - docs/root.yaml
