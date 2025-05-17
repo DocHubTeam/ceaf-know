@@ -18,3 +18,4 @@ docs:
     title: CEAF знаний
     description: Документация по архитектурному фреймворку CEAF в части управления знаниями
     source: README.md
+    icon: mdi-head-dots-horizontal
