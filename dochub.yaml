@@ -13,6 +13,7 @@ imports:
   - docs/root.yaml
 docs:
   ceaf.known.introduction:
+    toc: false
     type: markdown
     location: /CEAF/Knowledge
     title: CEAF знаний
